@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HealthcareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Driver_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rent" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Did" Type="int" Nullable="false" />
+          <Property Name="Pid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blood_Bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BGroup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="collection_Date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Specaility" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visiting_Hour" Type="varchar" MaxLength="50" />
+          <Property Name="Hid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donar_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Blood_group" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donate_Money">
+          <Key>
+            <PropertyRef Name="Transaction_Id" />
+          </Key>
+          <Property Name="Transaction_Id" Type="float" Nullable="false" />
+          <Property Name="Money_Donate" Type="float" />
+          <Property Name="Status" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Hospital">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Medicine_Id" />
+          </Key>
+          <Property Name="Medicine_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Hid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Ambulance_Ambulance">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blood_Bank_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Blood_Bank" Type="Self.Blood_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blood_Bank">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donar_Info_Blood_Bank">
+          <End Role="Blood_Bank" Type="Self.Blood_Bank" Multiplicity="1" />
+          <End Role="Donar_Info" Type="Self.Donar_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blood_Bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Donar_Info">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medicine_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthcareModelStoreContainer">
+          <EntitySet Name="Ambulance" EntityType="Self.Ambulance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blood_Bank" EntityType="Self.Blood_Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ambulance_Ambulance" Association="Self.FK_Ambulance_Ambulance">
+            <End Role="Hospital" EntitySet="Hospital" />
+            <End Role="Ambulance" EntitySet="Ambulance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Doctor" Association="Self.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blood_Bank_Hospital" Association="Self.FK_Blood_Bank_Hospital">
+            <End Role="Hospital" EntitySet="Hospital" />
+            <End Role="Blood_Bank" EntitySet="Blood_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_Hospital" Association="Self.FK_Doctor_Hospital">
+            <End Role="Hospital" EntitySet="Hospital" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donar_Info_Blood_Bank" Association="Self.FK_Donar_Info_Blood_Bank">
+            <End Role="Blood_Bank" EntitySet="Blood_Bank" />
+            <End Role="Donar_Info" EntitySet="Donar_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medicine_Hospital" Association="Self.FK_Medicine_Hospital">
+            <End Role="Hospital" EntitySet="Hospital" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthcareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Driver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Hospital" Relationship="Self.FK_Ambulance_Ambulance" FromRole="Ambulance" ToRole="Hospital" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Did" Type="Int32" Nullable="false" />
+          <Property Name="Pid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Appointment_Doctor" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Blood_Bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="collection_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hospital" Relationship="Self.FK_Blood_Bank_Hospital" FromRole="Blood_Bank" ToRole="Hospital" />
+          <NavigationProperty Name="Donar_Info" Relationship="Self.FK_Donar_Info_Blood_Bank" FromRole="Blood_Bank" ToRole="Donar_Info" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Specaility" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Visiting_Hour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
+          <NavigationProperty Name="Hospital" Relationship="Self.FK_Doctor_Hospital" FromRole="Doctor" ToRole="Hospital" />
+        </EntityType>
+        <EntityType Name="Donar_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Blood_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blood_Bank" Relationship="Self.FK_Donar_Info_Blood_Bank" FromRole="Donar_Info" ToRole="Blood_Bank" />
+        </EntityType>
+        <EntityType Name="Donate_Money">
+          <Key>
+            <PropertyRef Name="Transaction_Id" />
+          </Key>
+          <Property Name="Transaction_Id" Type="Double" Nullable="false" />
+          <Property Name="Money_Donate" Type="Double" />
+          <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Hospital">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ambulances" Relationship="Self.FK_Ambulance_Ambulance" FromRole="Hospital" ToRole="Ambulance" />
+          <NavigationProperty Name="Blood_Bank" Relationship="Self.FK_Blood_Bank_Hospital" FromRole="Hospital" ToRole="Blood_Bank" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK_Doctor_Hospital" FromRole="Hospital" ToRole="Doctor" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK_Medicine_Hospital" FromRole="Hospital" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Medicine_Id" />
+          </Key>
+          <Property Name="Medicine_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Hid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hospital" Relationship="Self.FK_Medicine_Hospital" FromRole="Medicine" ToRole="Hospital" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK_Ambulance_Ambulance">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ambulance">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blood_Bank_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Blood_Bank" Type="Self.Blood_Bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Blood_Bank">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donar_Info_Blood_Bank">
+          <End Role="Blood_Bank" Type="Self.Blood_Bank" Multiplicity="1" />
+          <End Role="Donar_Info" Type="Self.Donar_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blood_Bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Donar_Info">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medicine_Hospital">
+          <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthcareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ambulances" EntityType="Self.Ambulance" />
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Blood_Bank" EntityType="Self.Blood_Bank" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" />
+          <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" />
+          <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <AssociationSet Name="FK_Ambulance_Ambulance" Association="Self.FK_Ambulance_Ambulance">
+            <End Role="Hospital" EntitySet="Hospitals" />
+            <End Role="Ambulance" EntitySet="Ambulances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Doctor" Association="Self.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blood_Bank_Hospital" Association="Self.FK_Blood_Bank_Hospital">
+            <End Role="Hospital" EntitySet="Hospitals" />
+            <End Role="Blood_Bank" EntitySet="Blood_Bank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donar_Info_Blood_Bank" Association="Self.FK_Donar_Info_Blood_Bank">
+            <End Role="Blood_Bank" EntitySet="Blood_Bank" />
+            <End Role="Donar_Info" EntitySet="Donar_Info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_Hospital" Association="Self.FK_Doctor_Hospital">
+            <End Role="Hospital" EntitySet="Hospitals" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medicine_Hospital" Association="Self.FK_Medicine_Hospital">
+            <End Role="Hospital" EntitySet="Hospitals" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthcareModelStoreContainer" CdmEntityContainer="HealthcareEntities">
+          <EntitySetMapping Name="Ambulances">
+            <EntityTypeMapping TypeName="HealthcareModel.Ambulance">
+              <MappingFragment StoreEntitySet="Ambulance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Driver_Name" ColumnName="Driver_Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="HealthcareModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Did" ColumnName="Did" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blood_Bank">
+            <EntityTypeMapping TypeName="HealthcareModel.Blood_Bank">
+              <MappingFragment StoreEntitySet="Blood_Bank">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BGroup" ColumnName="BGroup" />
+                <ScalarProperty Name="collection_Date" ColumnName="collection_Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="HealthcareModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Specaility" ColumnName="Specaility" />
+                <ScalarProperty Name="Visiting_Hour" ColumnName="Visiting_Hour" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donar_Info">
+            <EntityTypeMapping TypeName="HealthcareModel.Donar_Info">
+              <MappingFragment StoreEntitySet="Donar_Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Blood_group" ColumnName="Blood_group" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donate_Money">
+            <EntityTypeMapping TypeName="HealthcareModel.Donate_Money">
+              <MappingFragment StoreEntitySet="Donate_Money">
+                <ScalarProperty Name="Transaction_Id" ColumnName="Transaction_Id" />
+                <ScalarProperty Name="Money_Donate" ColumnName="Money_Donate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hospitals">
+            <EntityTypeMapping TypeName="HealthcareModel.Hospital">
+              <MappingFragment StoreEntitySet="Hospital">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="HealthcareModel.Medicine">
+              <MappingFragment StoreEntitySet="Medicine">
+                <ScalarProperty Name="Medicine_Id" ColumnName="Medicine_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HealthcareModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
