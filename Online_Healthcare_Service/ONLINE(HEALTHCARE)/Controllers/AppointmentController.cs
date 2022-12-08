@@ -57,7 +57,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
-        [Route("api/Appointment/delete/{id}")]
+        [Route("api/appointment/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage DeleteAppointment(int id)
         {
