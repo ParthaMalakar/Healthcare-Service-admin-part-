@@ -17,14 +17,19 @@ namespace DAL.EF
         public Patient()
         {
             this.Appointments = new HashSet<Appointment>();
+            this.Token_Patient = new HashSet<Token_Patient>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Age { get; set; }
+        public int Age { get; set; }
         public string phone { get; set; }
         public string Status { get; set; }
+        public string User_Type { get; set; }
+        public string password { get; set; }
+        public string Email { get; set; }
     
         public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<Token_Patient> Token_Patient { get; set; }
     }
 }

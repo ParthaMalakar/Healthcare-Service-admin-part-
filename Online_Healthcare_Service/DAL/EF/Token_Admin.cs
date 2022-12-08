@@ -12,21 +12,14 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Doctor
+    public partial class Token_Admin
     {
-        public Doctor()
-        {
-            this.Appointments = new HashSet<Appointment>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Specaility { get; set; }
-        public string Visiting_Hour { get; set; }
-        public int Hid { get; set; }
-        public Nullable<int> Fees { get; set; }
+        public string Token { get; set; }
+        public System.DateTime Token_CreatedAt { get; set; }
+        public Nullable<System.DateTime> Token_ExpiredAt { get; set; }
+        public int A_Id { get; set; }
     
-        public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual Hospital Hospital { get; set; }
+        public virtual Admin Admin { get; set; }
     }
 }

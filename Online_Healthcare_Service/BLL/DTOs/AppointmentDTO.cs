@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,8 @@ namespace BLL.DTOs
         public int Id { get; set; }
         public int Did { get; set; }
         public int Pid { get; set; }
+        public string Status { get; set; }
+
+       
     }
 }

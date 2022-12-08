@@ -25,6 +25,7 @@ namespace DAL.EF
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Admin> Admins { get; set; }
         public DbSet<Ambulance> Ambulances { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Blood_Bank> Blood_Bank { get; set; }
@@ -34,5 +35,8 @@ namespace DAL.EF
         public DbSet<Hospital> Hospitals { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<Token_Admin> Token_Admin { get; set; }
+        public DbSet<Token_Patient> Token_Patient { get; set; }
     }
 }

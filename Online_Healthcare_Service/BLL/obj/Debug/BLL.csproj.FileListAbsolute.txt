@@ -12,3 +12,17 @@ C:\Users\HP\source\repos\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.Core
 C:\Users\HP\source\repos\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\HP\source\repos\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
 C:\Users\HP\source\repos\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\BLL.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\BLL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\DAL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll.config
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb

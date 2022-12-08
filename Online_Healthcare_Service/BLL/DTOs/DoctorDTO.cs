@@ -13,5 +13,6 @@ namespace BLL.DTOs
         public string Specaility { get; set; }
         public string Visiting_Hour { get; set; }
         public int Hid { get; set; }
+        public Nullable<int> Fees { get; set; }
     }
 }

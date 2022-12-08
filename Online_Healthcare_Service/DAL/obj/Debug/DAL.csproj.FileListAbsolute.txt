@@ -8,3 +8,13 @@ C:\Users\HP\source\repos\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.Core
 C:\Users\HP\source\repos\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\HP\source\repos\Online_Healthcare_Service\DAL\obj\Debug\DAL.dll
 C:\Users\HP\source\repos\Online_Healthcare_Service\DAL\obj\Debug\DAL.pdb
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\DAL.dll.config
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\DAL.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\DAL.pdb
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\EntityFramework.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\EntityFramework.xml
+D:\moive\New folder\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\moive\New folder\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\moive\New folder\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\moive\New folder\Online_Healthcare_Service\DAL\obj\Debug\DAL.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\obj\Debug\DAL.pdb

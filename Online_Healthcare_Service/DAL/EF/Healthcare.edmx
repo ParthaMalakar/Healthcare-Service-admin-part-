@@ -5,16 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="HealthcareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_Id" />
+          </Key>
+          <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Ambulance">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Driver_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Rent" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
@@ -23,6 +32,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Did" Type="int" Nullable="false" />
           <Property Name="Pid" Type="int" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Blood_Bank">
           <Key>
@@ -43,6 +53,7 @@
           <Property Name="Specaility" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Visiting_Hour" Type="varchar" MaxLength="50" />
           <Property Name="Hid" Type="int" Nullable="false" />
+          <Property Name="Fees" Type="int" />
         </EntityType>
         <EntityType Name="Donar_Info">
           <Key>
@@ -85,9 +96,42 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Age" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="User_Type" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Token_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Token_CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="Token_ExpiredAt" Type="datetime" />
+          <Property Name="A_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Token_Patient">
+          <Key>
+            <PropertyRef Name="Pt_Id" />
+          </Key>
+          <Property Name="Pt_Id" Type="int" Nullable="false" />
+          <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Token_CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="Token_ExpiredAt" Type="datetime" />
+          <Property Name="Pid" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Ambulance_Ambulance">
           <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
@@ -173,7 +217,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Token_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="Token_Admin" Type="Self.Token_Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Admin_Id" />
+            </Principal>
+            <Dependent Role="Token_Admin">
+              <PropertyRef Name="A_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Token_Patient_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Token_Patient" Type="Self.Token_Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Token_Patient">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HealthcareModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ambulance" EntityType="Self.Ambulance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Blood_Bank" EntityType="Self.Blood_Bank" Schema="dbo" store:Type="Tables" />
@@ -183,6 +252,9 @@
           <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token_Admin" EntityType="Self.Token_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token_Patient" EntityType="Self.Token_Patient" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Ambulance_Ambulance" Association="Self.FK_Ambulance_Ambulance">
             <End Role="Hospital" EntitySet="Hospital" />
             <End Role="Ambulance" EntitySet="Ambulance" />
@@ -211,22 +283,40 @@
             <End Role="Hospital" EntitySet="Hospital" />
             <End Role="Medicine" EntitySet="Medicine" />
           </AssociationSet>
+          <AssociationSet Name="FK_Token_Admin" Association="Self.FK_Token_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Token_Admin" EntitySet="Token_Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Token_Patient_Patient" Association="Self.FK_Token_Patient_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Token_Patient" EntitySet="Token_Patient" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HealthcareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_Id" />
+          </Key>
+          <Property Name="Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Token_Admin" Relationship="Self.FK_Token_Admin" FromRole="Admin" ToRole="Token_Admin" />
+        </EntityType>
         <EntityType Name="Ambulance">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Driver_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Rent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Hospital" Relationship="Self.FK_Ambulance_Ambulance" FromRole="Ambulance" ToRole="Hospital" />
         </EntityType>
         <EntityType Name="Appointment">
@@ -236,6 +326,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Did" Type="Int32" Nullable="false" />
           <Property Name="Pid" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Doctor" Relationship="Self.FK_Appointment_Doctor" FromRole="Appointment" ToRole="Doctor" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
         </EntityType>
@@ -260,6 +351,7 @@
           <Property Name="Specaility" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Visiting_Hour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Hid" Type="Int32" Nullable="false" />
+          <Property Name="Fees" Type="Int32" />
           <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
           <NavigationProperty Name="Hospital" Relationship="Self.FK_Doctor_Hospital" FromRole="Doctor" ToRole="Hospital" />
         </EntityType>
@@ -310,11 +402,59 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+          <NavigationProperty Name="Token_Patient" Relationship="Self.FK_Token_Patient_Patient" FromRole="Patient" ToRole="Token_Patient" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Token_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Token_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Token_ExpiredAt" Type="DateTime" Precision="3" />
+          <Property Name="A_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_Token_Admin" FromRole="Token_Admin" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="Token_Patient">
+          <Key>
+            <PropertyRef Name="Pt_Id" />
+          </Key>
+          <Property Name="Pt_Id" Type="Int32" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Token_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Token_ExpiredAt" Type="DateTime" Precision="3" />
+          <Property Name="Pid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Token_Patient_Patient" FromRole="Token_Patient" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK_Token_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="Token_Admin" Type="Self.Token_Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Admin_Id" />
+            </Principal>
+            <Dependent Role="Token_Admin">
+              <PropertyRef Name="A_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ambulance_Ambulance">
           <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
           <End Role="Ambulance" Type="Self.Ambulance" Multiplicity="*" />
@@ -399,7 +539,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Token_Patient_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Token_Patient" Type="Self.Token_Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Token_Patient">
+              <PropertyRef Name="Pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HealthcareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Ambulances" EntityType="Self.Ambulance" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="Blood_Bank" EntityType="Self.Blood_Bank" />
@@ -409,6 +562,13 @@
           <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
           <EntitySet Name="Medicines" EntityType="Self.Medicine" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Token_Admin" EntityType="Self.Token_Admin" />
+          <EntitySet Name="Token_Patient" EntityType="Self.Token_Patient" />
+          <AssociationSet Name="FK_Token_Admin" Association="Self.FK_Token_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Token_Admin" EntitySet="Token_Admin" />
+          </AssociationSet>
           <AssociationSet Name="FK_Ambulance_Ambulance" Association="Self.FK_Ambulance_Ambulance">
             <End Role="Hospital" EntitySet="Hospitals" />
             <End Role="Ambulance" EntitySet="Ambulances" />
@@ -437,6 +597,10 @@
             <End Role="Hospital" EntitySet="Hospitals" />
             <End Role="Medicine" EntitySet="Medicines" />
           </AssociationSet>
+          <AssociationSet Name="FK_Token_Patient_Patient" Association="Self.FK_Token_Patient_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Token_Patient" EntitySet="Token_Patient" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -444,6 +608,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HealthcareModelStoreContainer" CdmEntityContainer="HealthcareEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="HealthcareModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ambulances">
             <EntityTypeMapping TypeName="HealthcareModel.Ambulance">
               <MappingFragment StoreEntitySet="Ambulance">
@@ -462,6 +636,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Did" ColumnName="Did" />
                 <ScalarProperty Name="Pid" ColumnName="Pid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -484,6 +659,7 @@
                 <ScalarProperty Name="Specaility" ColumnName="Specaility" />
                 <ScalarProperty Name="Visiting_Hour" ColumnName="Visiting_Hour" />
                 <ScalarProperty Name="Hid" ColumnName="Hid" />
+                <ScalarProperty Name="Fees" ColumnName="Fees" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -534,6 +710,42 @@
                 <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HealthcareModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Token_Admin">
+            <EntityTypeMapping TypeName="HealthcareModel.Token_Admin">
+              <MappingFragment StoreEntitySet="Token_Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Token_CreatedAt" ColumnName="Token_CreatedAt" />
+                <ScalarProperty Name="Token_ExpiredAt" ColumnName="Token_ExpiredAt" />
+                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Token_Patient">
+            <EntityTypeMapping TypeName="HealthcareModel.Token_Patient">
+              <MappingFragment StoreEntitySet="Token_Patient">
+                <ScalarProperty Name="Pt_Id" ColumnName="Pt_Id" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Token_CreatedAt" ColumnName="Token_CreatedAt" />
+                <ScalarProperty Name="Token_ExpiredAt" ColumnName="Token_ExpiredAt" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

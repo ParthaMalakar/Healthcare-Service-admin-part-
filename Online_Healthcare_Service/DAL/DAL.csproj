@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="EF\Admin.cs">
+      <DependentUpon>Healthcare.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Ambulance.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
@@ -92,6 +95,15 @@
     <Compile Include="EF\Patient.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>Healthcare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Token_Admin.cs">
+      <DependentUpon>Healthcare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Token_Patient.cs">
+      <DependentUpon>Healthcare.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\AppointmentRepo.cs" />
@@ -99,23 +111,25 @@
     <Compile Include="Repos\PatientRepo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="EF\Healthcare.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Healthcare.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="EF\Healthcare.edmx.diagram">
       <DependentUpon>Healthcare.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
     <Content Include="EF\Healthcare.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Healthcare.Context.cs</LastGenOutput>
       <DependentUpon>Healthcare.edmx</DependentUpon>
+      <LastGenOutput>Healthcare.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EF\Healthcare.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -123,9 +137,5 @@
       <LastGenOutput>Healthcare.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
