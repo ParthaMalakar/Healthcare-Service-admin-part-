@@ -9,6 +9,7 @@
     <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Token_Admin" Relationship="Self.FK_Token_Admin" FromRole="Admin" ToRole="Token_Admin" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Ambulance">
     <Key>

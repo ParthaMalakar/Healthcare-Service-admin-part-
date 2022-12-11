@@ -26,3 +26,49 @@ D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CoreCompi
 D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
 D:\moive\New folder\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\BLL.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\BLL.pdb
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\DAL.pdb
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll.config
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.xml
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Cors.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.dll
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.xml
+C:\Users\Atif\Downloads\Healthcare-Service-admin-part--main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\BLL.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\BLL.pdb
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Cors.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\DAL.pdb
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll.config
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.xml
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
+C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb

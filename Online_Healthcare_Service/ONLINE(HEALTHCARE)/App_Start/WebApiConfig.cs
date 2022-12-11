@@ -12,6 +12,7 @@ namespace ONLINE_HEALTHCARE_
             // Web API configuration and services
 
             // Web API routes
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

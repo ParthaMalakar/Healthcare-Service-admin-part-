@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
     public class AppointmentController : ApiController
     {
+        [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/Appointments")]
         public HttpResponseMessage Get()
@@ -26,6 +28,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
+        [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/Appointment/{id}")]
         public HttpResponseMessage Get(int id)
@@ -33,6 +36,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             var data = AppointmentService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+        [EnableCors("*", "*", "*")]
         [Route("api/Appointment/add")]
         [HttpPost]
         public HttpResponseMessage Add(AppointmentDTO obj)
@@ -41,6 +45,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
 
         }
+        [EnableCors("*", "*", "*")]
         [Route("api/Appointment/update")]
         [HttpPost]
         public HttpResponseMessage Update(AppointmentDTO Appointment)
@@ -57,6 +62,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
+        [EnableCors("*", "*", "*")]
         [Route("api/appointment/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage DeleteAppointment(int id)

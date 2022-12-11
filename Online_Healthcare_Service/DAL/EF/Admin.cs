@@ -23,6 +23,7 @@ namespace DAL.EF
         public string Name { get; set; }
         public string User_Type { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     
         public virtual ICollection<Token_Admin> Token_Admin { get; set; }
     }

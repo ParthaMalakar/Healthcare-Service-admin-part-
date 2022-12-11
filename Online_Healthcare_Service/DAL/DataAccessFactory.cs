@@ -25,6 +25,25 @@ namespace DAL
         {
             return new AppointmentRepo();
         }
-       
+
+        public static IRepo<Donar_Info, int, Donar_Info> DonorInfoDataAccess()
+        {
+            return new Donor_InfoRepo();
+        }
+
+        public static IRepo<Blood_Bank, int, Blood_Bank> BloodBankDataAccess()
+        {
+            return new Blood_BankRepo();
+        }
+
+        public static IRepo<Hospital, int, Hospital> HospitalDataAccess()
+        {
+            return new HospitalRepo();
+        }
+        public static IAuth AuthDataAccess()
+        {
+            return new AdminRepo();
+        }
+
     }
 }
