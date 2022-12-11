@@ -308,3 +308,6 @@ C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).csproj.CopyComplete
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).dll
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).pdb
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\System.Web.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\System.Web.Http.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\System.Web.Http.Cors.xml

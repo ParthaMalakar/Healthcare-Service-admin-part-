@@ -44,6 +44,9 @@ namespace DAL
         {
             return new AdminRepo();
         }
-
+        public static IRepo<Token_Admin, string, Token_Admin> TokenDataAccess()
+        {
+            return new AdminTokenRepo();
+        }
     }
 }

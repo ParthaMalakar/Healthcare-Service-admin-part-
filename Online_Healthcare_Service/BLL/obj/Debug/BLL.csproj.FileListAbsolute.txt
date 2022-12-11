@@ -72,3 +72,12 @@ C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
 C:\Users\HP\Downloads\Online-Healtcare-Service-main (1)\Online-Healtcare-Service-main\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.xml

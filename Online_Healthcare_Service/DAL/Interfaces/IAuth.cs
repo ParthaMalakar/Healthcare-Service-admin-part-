@@ -9,7 +9,7 @@ namespace DAL.Interfaces
   
         public interface IAuth
         {
-            bool Authenticate(string uname, string pass);
+            bool Authenticate(int uname, string pass);
 
         }
     }
