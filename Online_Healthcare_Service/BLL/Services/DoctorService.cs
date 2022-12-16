@@ -30,6 +30,7 @@ namespace BLL.Services
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Doctor, DoctorDTO>();
+               // cfg.CreateMap<Hospital, HospitalDTO>();
             });
             var mapper = new Mapper(config);
             var converted = mapper.Map<DoctorDTO>(data);

@@ -10,10 +10,10 @@ namespace DAL.Repos
 {
     internal class Blood_BankRepo : IRepo<Blood_Bank, int, Blood_Bank>
     {
-        HealthcareEntities db;
+        HealthcareEntities1 db;
         internal Blood_BankRepo()
         {
-            db = new HealthcareEntities();
+            db = new HealthcareEntities1();
         }
         public Blood_Bank Add(Blood_Bank obj)
         {

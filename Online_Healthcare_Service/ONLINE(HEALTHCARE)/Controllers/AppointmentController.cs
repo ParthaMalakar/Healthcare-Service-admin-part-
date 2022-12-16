@@ -28,6 +28,29 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
+
+
+
+        [EnableCors("*", "*", "*")]
+        [HttpGet]
+        [Route("api/Appointments/pid/{id}")]
+        public HttpResponseMessage GetById(int id)
+        {
+            try
+            {
+                var data = AppointmentService.GetByPid(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+        }
+
+
+
+
         [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/Appointment/{id}")]

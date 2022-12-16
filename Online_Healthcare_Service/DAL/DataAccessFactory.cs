@@ -40,13 +40,43 @@ namespace DAL
         {
             return new HospitalRepo();
         }
-        public static IAuth AuthDataAccess()
+
+        public static IGet<Appointment, int> AppointmentIdDataAccess()
+        {
+            return new AppointmentRepo();
+        }
+
+       
+        public static IGet<Prescription, int> PrescriptionIdDataAccess()
+        {
+            return new PrescriptionRepo();
+        }
+
+        public static IRepo<Prescription, int, Prescription> PrescriptionDataAccess()
+        {
+            return new PrescriptionRepo();
+        }
+
+        public static IRepo<Ambulance, int,Ambulance> AmbulanceDataAccess()
+        {
+            return new AmbulanceRepo();
+        }
+
+        public static IRepo<Donate_Money, int, Donate_Money> DonateMoneyDataAccess()
+        {
+            return new DonateMoneyRepo();
+        }
+        public static IRepo<Admin, int, Admin> AdminDataAccess()
         {
             return new AdminRepo();
         }
-        public static IRepo<Token_Admin, string, Token_Admin> TokenDataAccess()
+        public static IRepo<User_Table, int, User_Table> UserDataAccess()
         {
-            return new AdminTokenRepo();
+            return new UserRepo();
+        }
+        public static IAuth AuthDataAccess()
+        {
+            return new AuthRepo();
         }
     }
 }

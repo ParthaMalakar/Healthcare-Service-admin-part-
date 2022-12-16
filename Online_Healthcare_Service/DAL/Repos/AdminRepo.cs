@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AdminRepo : IRepo<Admin, int, Admin>,IAuth
+    internal class AdminRepo : IRepo<Admin, int, Admin> 
     {
 
-        HealthcareEntities db;
+        HealthcareEntities1 db;
         internal AdminRepo()
         {
-            db = new HealthcareEntities();
+            db = new HealthcareEntities1();
         }
 
         public Admin Add(Admin obj)
@@ -51,7 +51,7 @@ namespace DAL.Repos
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
-        public bool Authenticate(int uname, string pass)
+        public bool Authenticate(string uname, string pass)
         {
             var data = db.Admins.FirstOrDefault(u => u.Name.Equals(uname) && u.Password.Equals(pass));
             if (data != null) return true;

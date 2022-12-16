@@ -25,6 +25,7 @@ namespace DAL.EF
         public string Visiting_Hour { get; set; }
         public int Hid { get; set; }
         public Nullable<int> Fees { get; set; }
+        public string User_Type { get; set; }
     
         public virtual ICollection<Appointment> Appointments { get; set; }
         public virtual Hospital Hospital { get; set; }

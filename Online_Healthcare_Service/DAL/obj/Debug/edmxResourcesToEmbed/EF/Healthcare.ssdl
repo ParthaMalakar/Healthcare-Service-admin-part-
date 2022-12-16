@@ -50,6 +50,7 @@
     <Property Name="Visiting_Hour" Type="varchar" MaxLength="50" />
     <Property Name="Hid" Type="int" Nullable="false" />
     <Property Name="Fees" Type="int" />
+    <Property Name="User_Type" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donar_Info">
     <Key>
@@ -77,15 +78,6 @@
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Medicine">
-    <Key>
-      <PropertyRef Name="Medicine_Id" />
-    </Key>
-    <Property Name="Medicine_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="false" />
-    <Property Name="Hid" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Patient">
     <Key>
       <PropertyRef Name="Id" />
@@ -99,6 +91,15 @@
     <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="Medicine_Id" />
+    </Key>
+    <Property Name="Medicine_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Hid" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -109,25 +110,27 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Token_Admin">
+  <EntityType Name="Token">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Token1" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Token_CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="Token_ExpiredAt" Type="datetime" />
-    <Property Name="A_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Token_Patient">
+  <EntityType Name="User_Table">
     <Key>
-      <PropertyRef Name="Pt_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Pt_Id" Type="int" Nullable="false" />
-    <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Token_CreatedAt" Type="datetime" Nullable="false" />
-    <Property Name="Token_ExpiredAt" Type="datetime" />
-    <Property Name="Pid" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Admin_Id" Type="int" />
+    <Property Name="Patient_Id" Type="int" />
+    <Property Name="Doctor_Id" Type="int" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Ambulance_Ambulance">
     <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
@@ -203,37 +206,25 @@
   </Association>
   <Association Name="FK_Medicine_Hospital">
     <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
-    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Hospital">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Medicine">
+      <Dependent Role="Prescription">
         <PropertyRef Name="Hid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Token_Admin">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
-    <End Role="Token_Admin" Type="Self.Token_Admin" Multiplicity="*" />
+  <Association Name="FK_Token_User_Table">
+    <End Role="User_Table" Type="Self.User_Table" Multiplicity="1" />
+    <End Role="Token" Type="Self.Token" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_Id" />
-      </Principal>
-      <Dependent Role="Token_Admin">
-        <PropertyRef Name="A_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Token_Patient_Patient">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-    <End Role="Token_Patient" Type="Self.Token_Patient" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Patient">
+      <Principal Role="User_Table">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Token_Patient">
-        <PropertyRef Name="Pid" />
+      <Dependent Role="Token">
+        <PropertyRef Name="User_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -246,11 +237,11 @@
     <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Token_Admin" EntityType="Self.Token_Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Token_Patient" EntityType="Self.Token_Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Table" EntityType="Self.User_Table" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Ambulance_Ambulance" Association="Self.FK_Ambulance_Ambulance">
       <End Role="Hospital" EntitySet="Hospital" />
       <End Role="Ambulance" EntitySet="Ambulance" />
@@ -277,15 +268,11 @@
     </AssociationSet>
     <AssociationSet Name="FK_Medicine_Hospital" Association="Self.FK_Medicine_Hospital">
       <End Role="Hospital" EntitySet="Hospital" />
-      <End Role="Medicine" EntitySet="Medicine" />
+      <End Role="Prescription" EntitySet="Prescription" />
     </AssociationSet>
-    <AssociationSet Name="FK_Token_Admin" Association="Self.FK_Token_Admin">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="Token_Admin" EntitySet="Token_Admin" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Token_Patient_Patient" Association="Self.FK_Token_Patient_Patient">
-      <End Role="Patient" EntitySet="Patient" />
-      <End Role="Token_Patient" EntitySet="Token_Patient" />
+    <AssociationSet Name="FK_Token_User_Table" Association="Self.FK_Token_User_Table">
+      <End Role="User_Table" EntitySet="User_Table" />
+      <End Role="Token" EntitySet="Token" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

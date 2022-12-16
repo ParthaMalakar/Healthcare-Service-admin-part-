@@ -70,5 +70,19 @@ namespace BLL.Services
             });
             return DataAccessFactory.AppointmentDataAccess().Delete(id);
         }
+
+        public static List<AppointmentDTO> GetByPid(int id)
+        {
+            //return new List<AppointmentDTO>();
+            var data = DataAccessFactory.AppointmentIdDataAccess().GetByPid(id);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Appointment, AppointmentDTO>();
+            });
+            var mapper = new Mapper(config);
+            var converted = mapper.Map<List<AppointmentDTO>>(data);
+            return converted;
+        }
+
     }
 }

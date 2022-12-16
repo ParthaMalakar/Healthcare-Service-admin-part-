@@ -12,13 +12,21 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Medicine
+    public partial class User_Table
     {
-        public int Medicine_Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Hid { get; set; }
+        public User_Table()
+        {
+            this.Tokens = new HashSet<Token>();
+        }
     
-        public virtual Hospital Hospital { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string User_Type { get; set; }
+        public Nullable<int> Admin_Id { get; set; }
+        public Nullable<int> Patient_Id { get; set; }
+        public Nullable<int> Doctor_Id { get; set; }
+        public string Password { get; set; }
+    
+        public virtual ICollection<Token> Tokens { get; set; }
     }
 }

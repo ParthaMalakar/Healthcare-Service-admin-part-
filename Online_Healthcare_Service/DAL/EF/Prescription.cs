@@ -12,14 +12,13 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Token_Patient
+    public partial class Prescription
     {
-        public int Pt_Id { get; set; }
-        public string Token { get; set; }
-        public System.DateTime Token_CreatedAt { get; set; }
-        public Nullable<System.DateTime> Token_ExpiredAt { get; set; }
-        public int Pid { get; set; }
+        public int Medicine_Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Hid { get; set; }
     
-        public virtual Patient Patient { get; set; }
+        public virtual Hospital Hospital { get; set; }
     }
 }

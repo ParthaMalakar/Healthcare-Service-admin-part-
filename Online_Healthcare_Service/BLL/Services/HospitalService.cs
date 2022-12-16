@@ -71,17 +71,17 @@ namespace BLL.Services
             });
             return DataAccessFactory.HospitalDataAccess().Delete(id);
         }
-        public static HospitalDoctorDTOs GetwithDoctor(int id)
+        public static HospitalDoctorDTO GetwithDoctor(int id)
         {
             var data = DataAccessFactory.HospitalDataAccess().Get(id);
             var cfg = new MapperConfiguration(c => {
-                c.CreateMap<Hospital, HospitalDoctorDTOs>();
+                c.CreateMap<Hospital, HospitalDoctorDTO>();
                 c.CreateMap<Doctor, DoctorDTO>();
 
             });
             var mapper = new Mapper(cfg);
-            return mapper.Map<HospitalDoctorDTOs>(data);
+            return mapper.Map<HospitalDoctorDTO>(data);
         }
-       
+
     }
 }

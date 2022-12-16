@@ -9,9 +9,10 @@ namespace BLL.DTOs
 {
     public class HospitalDTO
     {
+       
         public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-     //   public virtual ICollection<Blood_Bank> Blood_Bank { get; set; }
+       // public virtual List<DoctorDTO> Doctors { get; set; }
     }
 }

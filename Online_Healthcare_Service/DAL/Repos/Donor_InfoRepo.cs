@@ -10,11 +10,11 @@ namespace DAL.Repos
 {
     internal class Donor_InfoRepo : IRepo<Donar_Info, int, Donar_Info>
     {
-        HealthcareEntities db;
+        HealthcareEntities1 db;
 
         internal Donor_InfoRepo()
         {
-            db = new HealthcareEntities();
+            db = new HealthcareEntities1();
         }
         public Donar_Info Add(Donar_Info obj)
         {

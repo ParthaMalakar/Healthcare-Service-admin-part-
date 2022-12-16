@@ -104,32 +104,38 @@
     <Compile Include="EF\Hospital.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Medicine.cs">
+    <Compile Include="EF\Patient.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Patient.cs">
+    <Compile Include="EF\Prescription.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagram.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Token_Admin.cs">
+    <Compile Include="EF\Token.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Token_Patient.cs">
+    <Compile Include="EF\User_Table.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAuth.cs" />
+    <Compile Include="Interfaces\IGet.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\AdminRepo.cs" />
-    <Compile Include="Repos\AdminTokenRepo.cs" />
+    <Compile Include="Repos\AmbulanceRepo.cs" />
     <Compile Include="Repos\AppointmentRepo.cs" />
+    <Compile Include="Repos\AuthRepo.cs" />
     <Compile Include="Repos\Blood_BankRepo.cs" />
     <Compile Include="Repos\DoctorRepo.cs" />
+    <Compile Include="Repos\DonateMoneyRepo.cs" />
     <Compile Include="Repos\Donor_InfoRepo.cs" />
     <Compile Include="Repos\HospitalRepo.cs" />
     <Compile Include="Repos\PatientRepo.cs" />
+    <Compile Include="Repos\PrescriptionRepo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
+    <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

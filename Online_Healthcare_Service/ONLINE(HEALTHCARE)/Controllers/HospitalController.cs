@@ -43,7 +43,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
 
 
 
-        [Route("api/bloodbank/add")]
+        [Route("api/hospital/add")]
         [HttpPost]
         public HttpResponseMessage Add(HospitalDTO obj)
         {
@@ -89,6 +89,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
                     }
                 );
         }
+
         [Route("api/hospital/{id}/Doctor")]
         [HttpGet]
         public HttpResponseMessage GetwithDoctor(int id)
@@ -102,7 +103,6 @@ namespace ONLINE_HEALTHCARE_.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-
 
 
 

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AppointmentRepo : IRepo<Appointment, int, Appointment>
+    internal class AppointmentRepo : IRepo<Appointment, int, Appointment>,IGet<Appointment,int>
     {
-        HealthcareEntities db;
+        HealthcareEntities1 db;
         internal AppointmentRepo()
         {
-            db = new HealthcareEntities();
+            db = new HealthcareEntities1();
         }
         public Appointment Add(Appointment obj)
         {
@@ -37,9 +37,18 @@ namespace DAL.Repos
             return db.Appointments.ToList();
         }
 
+        
+
         public Appointment Get(int id)
         {
             return db.Appointments.Find(id);
+        }
+
+
+        public List<Appointment> GetByPid(int id)
+        {
+            var data = (from a in db.Appointments where a.Pid == id select a).ToList();
+            return data;
         }
 
         public Appointment Update(Appointment obj)
@@ -49,5 +58,7 @@ namespace DAL.Repos
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
+
+        
     }
 }

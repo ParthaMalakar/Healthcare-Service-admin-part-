@@ -61,22 +61,31 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTOs\AdminDTO.cs" />
+    <Compile Include="DTOs\AmbulanceDTO.cs" />
     <Compile Include="DTOs\AppointmentDTO.cs" />
     <Compile Include="DTOs\BloodBankDTO.cs" />
     <Compile Include="DTOs\DoctorDTO.cs" />
+    <Compile Include="DTOs\DonateMoneyDTO.cs" />
     <Compile Include="DTOs\Donor_InfoDTO.cs" />
-    <Compile Include="DTOs\HospitalDoctorDTOs.cs" />
+    <Compile Include="DTOs\HospitalDoctorDTO.cs" />
     <Compile Include="DTOs\HospitalDTO.cs" />
     <Compile Include="DTOs\PatientDTO.cs" />
-    <Compile Include="DTOs\Token_AdminDTO.cs" />
+    <Compile Include="DTOs\PrescriptionDTO.cs" />
+    <Compile Include="DTOs\TokenDTO.cs" />
+    <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\AmbulanceService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\BloodBankService.cs" />
     <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\DonateMoneyService.cs" />
     <Compile Include="Services\Donor_InfoService.cs" />
     <Compile Include="Services\HospitalService.cs" />
     <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\PrescriptionService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

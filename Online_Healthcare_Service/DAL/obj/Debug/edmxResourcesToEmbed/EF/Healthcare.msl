@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HealthcareModelStoreContainer" CdmEntityContainer="HealthcareEntities">
+  <EntityContainerMapping StorageEntityContainer="HealthcareModelStoreContainer" CdmEntityContainer="HealthcareEntities1">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="HealthcareModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -54,6 +54,7 @@
           <ScalarProperty Name="Visiting_Hour" ColumnName="Visiting_Hour" />
           <ScalarProperty Name="Hid" ColumnName="Hid" />
           <ScalarProperty Name="Fees" ColumnName="Fees" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,16 +87,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Medicines">
-      <EntityTypeMapping TypeName="HealthcareModel.Medicine">
-        <MappingFragment StoreEntitySet="Medicine">
-          <ScalarProperty Name="Medicine_Id" ColumnName="Medicine_Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Hid" ColumnName="Hid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="HealthcareModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
@@ -110,6 +101,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Prescriptions">
+      <EntityTypeMapping TypeName="HealthcareModel.Prescription">
+        <MappingFragment StoreEntitySet="Prescription">
+          <ScalarProperty Name="Medicine_Id" ColumnName="Medicine_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Hid" ColumnName="Hid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="HealthcareModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -121,25 +122,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Token_Admin">
-      <EntityTypeMapping TypeName="HealthcareModel.Token_Admin">
-        <MappingFragment StoreEntitySet="Token_Admin">
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="HealthcareModel.Token">
+        <MappingFragment StoreEntitySet="Token">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Token1" ColumnName="Token1" />
           <ScalarProperty Name="Token_CreatedAt" ColumnName="Token_CreatedAt" />
           <ScalarProperty Name="Token_ExpiredAt" ColumnName="Token_ExpiredAt" />
-          <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Token_Patient">
-      <EntityTypeMapping TypeName="HealthcareModel.Token_Patient">
-        <MappingFragment StoreEntitySet="Token_Patient">
-          <ScalarProperty Name="Pt_Id" ColumnName="Pt_Id" />
-          <ScalarProperty Name="Token" ColumnName="Token" />
-          <ScalarProperty Name="Token_CreatedAt" ColumnName="Token_CreatedAt" />
-          <ScalarProperty Name="Token_ExpiredAt" ColumnName="Token_ExpiredAt" />
-          <ScalarProperty Name="Pid" ColumnName="Pid" />
+    <EntitySetMapping Name="User_Table">
+      <EntityTypeMapping TypeName="HealthcareModel.User_Table">
+        <MappingFragment StoreEntitySet="User_Table">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+          <ScalarProperty Name="Doctor_Id" ColumnName="Doctor_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

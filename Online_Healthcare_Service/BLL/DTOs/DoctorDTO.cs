@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace BLL.DTOs
         public string Visiting_Hour { get; set; }
         public int Hid { get; set; }
         public Nullable<int> Fees { get; set; }
+      //  public virtual Hospital Hospital { get; set; }
     }
 }

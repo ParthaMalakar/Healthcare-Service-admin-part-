@@ -12,14 +12,14 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Token_Admin
+    public partial class Token
     {
         public int Id { get; set; }
-        public string Token { get; set; }
+        public string Token1 { get; set; }
         public System.DateTime Token_CreatedAt { get; set; }
         public Nullable<System.DateTime> Token_ExpiredAt { get; set; }
-        public int A_Id { get; set; }
+        public int User_Id { get; set; }
     
-        public virtual Admin Admin { get; set; }
+        public virtual User_Table User_Table { get; set; }
     }
 }
