@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using ONLINE_HEALTHCARE_.AuthFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
         [EnableCors("*", "*", "*")]
         [HttpGet]
         [Route("api/Ambulances")]
+        [Logged]
         public HttpResponseMessage Get()
         {
             try

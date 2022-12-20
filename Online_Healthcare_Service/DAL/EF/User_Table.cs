@@ -20,11 +20,11 @@ namespace DAL.EF
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Email { get; set; }
         public string User_Type { get; set; }
-        public Nullable<int> Admin_Id { get; set; }
-        public Nullable<int> Patient_Id { get; set; }
-        public Nullable<int> Doctor_Id { get; set; }
+        public string Admin_Name { get; set; }
+        public string Patient_Name { get; set; }
+        public string Doctor_Name { get; set; }
         public string Password { get; set; }
     
         public virtual ICollection<Token> Tokens { get; set; }

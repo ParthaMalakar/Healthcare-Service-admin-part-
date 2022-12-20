@@ -16,7 +16,6 @@ namespace DAL.EF
     {
         public Hospital()
         {
-            this.Ambulances = new HashSet<Ambulance>();
             this.Blood_Bank = new HashSet<Blood_Bank>();
             this.Doctors = new HashSet<Doctor>();
             this.Prescriptions = new HashSet<Prescription>();
@@ -26,7 +25,6 @@ namespace DAL.EF
         public string Name { get; set; }
         public string Location { get; set; }
     
-        public virtual ICollection<Ambulance> Ambulances { get; set; }
         public virtual ICollection<Blood_Bank> Blood_Bank { get; set; }
         public virtual ICollection<Doctor> Doctors { get; set; }
         public virtual ICollection<Prescription> Prescriptions { get; set; }

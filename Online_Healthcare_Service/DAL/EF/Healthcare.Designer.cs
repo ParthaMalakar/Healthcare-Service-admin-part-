@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\DAL\EF\Healthcare.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\EF\Healthcare.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

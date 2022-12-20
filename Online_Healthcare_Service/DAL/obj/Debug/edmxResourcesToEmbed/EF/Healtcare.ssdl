@@ -56,7 +56,6 @@
     <Property Name="Fees" Type="int" />
     <Property Name="User_Type" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Donar_Info">
     <Key>
@@ -130,12 +129,12 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Admin_Name" Type="varchar" MaxLength="50" />
-    <Property Name="Patient_Name" Type="varchar" MaxLength="50" />
-    <Property Name="Doctor_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Admin_Id" Type="int" />
+    <Property Name="Patient_Id" Type="int" />
+    <Property Name="Doctor_Id" Type="int" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Ambulance_Ambulance">

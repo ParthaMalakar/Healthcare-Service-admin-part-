@@ -60,7 +60,6 @@
           <ScalarProperty Name="Fees" ColumnName="Fees" />
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -145,9 +144,9 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
-          <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
-          <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
-          <ScalarProperty Name="Doctor_Name" ColumnName="Doctor_Name" />
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Patient_Id" ColumnName="Patient_Id" />
+          <ScalarProperty Name="Doctor_Id" ColumnName="Doctor_Id" />
           <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -56,3 +56,31 @@ C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\DA
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.xml
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.Cors.xml
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Net.Http.Formatting.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.dll
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\Newtonsoft.Json.xml
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Net.Http.Formatting.xml
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.xml
+D:\moive\New folder\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.Cors.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\DAL.dll.config
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\DAL.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\DAL.pdb
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\EntityFramework.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\Newtonsoft.Json.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Net.Http.Formatting.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Cors.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.Cors.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\EntityFramework.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\Newtonsoft.Json.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Net.Http.Formatting.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\bin\Debug\System.Web.Http.Cors.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\obj\Debug\DAL.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\DAL\obj\Debug\DAL.pdb

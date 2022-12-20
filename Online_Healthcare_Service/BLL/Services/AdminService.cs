@@ -44,6 +44,14 @@ namespace BLL.Services
             });
             var mapper = new Mapper(config);
             var converted = mapper.Map<Admin>(obj);
+            User_Table AD = new User_Table()
+            {
+                Admin_Name = obj.Name,
+                Email = obj.Email,
+                Password = obj.Password,
+                User_Type = "Admin"
+            };
+            DataAccessFactory.UserDataAccess().Add(AD);
             var rs = DataAccessFactory.AdminDataAccess().Add(converted);
             var rtrs = mapper.Map<AdminDTO>(rs);
             return rtrs;

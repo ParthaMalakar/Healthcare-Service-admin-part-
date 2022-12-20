@@ -72,3 +72,35 @@ C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\BL
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
 C:\Users\HP\Downloads\Online_Healthcare_Service (1)\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\BLL.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\BLL.pdb
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Cors.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\DAL.pdb
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\DAL.dll.config
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\AutoMapper.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Net.Http.Formatting.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\System.Web.Http.Cors.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\bin\Debug\EntityFramework.xml
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
+E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb

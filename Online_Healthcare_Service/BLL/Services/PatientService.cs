@@ -44,6 +44,14 @@ namespace BLL.Services
             });
             var mapper = new Mapper(config);
             var converted = mapper.Map<Patient>(obj);
+            User_Table AD = new User_Table()
+            {
+                Patient_Name = obj.Name,
+                Email = obj.Email,
+                Password = obj.password,
+                User_Type = "Patient"
+            };
+            DataAccessFactory.UserDataAccess().Add(AD);
             var rs = DataAccessFactory.PatientDataAccess().Add(converted);
             var rtrs = mapper.Map<PatientDTO>(rs);
             return rtrs;

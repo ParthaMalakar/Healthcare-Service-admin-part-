@@ -18,7 +18,7 @@ namespace DAL.Repos
 
         public Token Authenticate(string username, string password)
         {
-            var u = db.User_Table.FirstOrDefault(e => e.Name == username && e.Password == password);
+            var u = db.User_Table.FirstOrDefault(e => e.Email == username && e.Password == password);
             if (u != null)
             {
                 var g = Guid.NewGuid();
@@ -61,5 +61,6 @@ namespace DAL.Repos
             }
             return false;
         }
+       
     }
 }
