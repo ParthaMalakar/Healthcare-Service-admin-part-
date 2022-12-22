@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class PatientAuthController : ApiController
-    {
+    { 
         [HttpPost]
         [Route("api/patientAuth/login")]
         public HttpResponseMessage Login(UserDTO u)

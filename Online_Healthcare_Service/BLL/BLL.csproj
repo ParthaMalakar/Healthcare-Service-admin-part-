@@ -71,6 +71,7 @@
     <Compile Include="DTOs\HospitalDoctorDTO.cs" />
     <Compile Include="DTOs\HospitalDTO.cs" />
     <Compile Include="DTOs\PatientDTO.cs" />
+    <Compile Include="DTOs\PatientFeedbackDTO.cs" />
     <Compile Include="DTOs\PrescriptionDTO.cs" />
     <Compile Include="DTOs\TokenDTO.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Services\DonateMoneyService.cs" />
     <Compile Include="Services\Donor_InfoService.cs" />
     <Compile Include="Services\HospitalService.cs" />
+    <Compile Include="Services\PatientFeedbackService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\UserNameService.cs" />

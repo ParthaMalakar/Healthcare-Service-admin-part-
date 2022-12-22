@@ -44,13 +44,13 @@ namespace DAL.Repos
 
         public List<Prescription> GetByPid(int id)
         {
-            var data = (from a in db.Prescriptions where a.Medicine_Id == id select a).ToList();
+            var data = (from a in db.Prescriptions where a.Id == id select a).ToList();
             return data;
         }
 
         public Prescription Update(Prescription obj)
         {
-            var dbobbj = db.Prescriptions.Find(obj.Medicine_Id);
+            var dbobbj = db.Prescriptions.Find(obj.Id);
             db.Entry(dbobbj).CurrentValues.SetValues(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
@@ -58,7 +58,7 @@ namespace DAL.Repos
 
         public List<Prescription> GetById(int id)
         {
-            var data = (from a in db.Prescriptions where a.Medicine_Id == id select a).ToList();
+            var data = (from a in db.Prescriptions where a.Id == id select a).ToList();
             return data;
         }
 

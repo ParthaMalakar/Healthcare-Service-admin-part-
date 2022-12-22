@@ -78,5 +78,14 @@ namespace BLL.Services
             });
             return DataAccessFactory.PatientDataAccess().Delete(id);
         }
+        public static int GetByEmail(string id)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<PatientDTO, Patient>();
+                cfg.CreateMap<Patient, PatientDTO>();
+            });
+            return DataAccessFactory.GetbyemailDataAccess().GetByEmail(id);
+        }
     }
 }

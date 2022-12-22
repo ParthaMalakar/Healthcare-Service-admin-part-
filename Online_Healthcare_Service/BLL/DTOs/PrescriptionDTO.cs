@@ -15,5 +15,7 @@ namespace BLL.DTOs
         public int H_Id { get; set; }
         public string Test { get; set; }
         public string Medicine { get; set; }
+        public string Patient_Name { get; set; }
+        public string Patient_Age { get; set; }
     }
 }

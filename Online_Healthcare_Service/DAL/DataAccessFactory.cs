@@ -40,7 +40,10 @@ namespace DAL
         {
             return new Blood_BankRepo();
         }
-
+        public static IRepo<PatientFeedback, int, PatientFeedback> PatientFeedbackDataAccess()
+        {
+            return new PatientFeedbackRepo();
+        }
         public static IRepo<Hospital, int, Hospital> HospitalDataAccess()
         {
             return new HospitalRepo();
@@ -95,6 +98,10 @@ namespace DAL
         public static IReport<AdminReport, String> ReportgetSRDataAccess()
         {
             return new AdminReportRepo();
+        }
+        public static IGetbyemailI<int, String> GetbyemailDataAccess()
+        {
+            return new PatientRepo();
         }
     }
 }

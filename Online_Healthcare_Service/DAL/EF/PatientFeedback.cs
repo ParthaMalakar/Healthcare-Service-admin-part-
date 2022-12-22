@@ -12,17 +12,10 @@ namespace DAL.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Ambulance
+    public partial class PatientFeedback
     {
         public int Id { get; set; }
-        public string Driver_Name { get; set; }
-        public string Phone { get; set; }
-        public string Rent { get; set; }
-        public string Status { get; set; }
-        public int Hid { get; set; }
-        public Nullable<int> Pid { get; set; }
-        public string Location { get; set; }
-    
-        public virtual Patient Patient { get; set; }
+        public string Email { get; set; }
+        public string Feedback { get; set; }
     }
 }

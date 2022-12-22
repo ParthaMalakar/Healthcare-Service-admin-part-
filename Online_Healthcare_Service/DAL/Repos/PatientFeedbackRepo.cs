@@ -3,22 +3,23 @@ using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class PatientRepo : IRepo<Patient, int, Patient>,IGetbyemailI<int, string>
+    internal class PatientFeedbackRepo : IRepo<PatientFeedback, int, PatientFeedback>
     {
         HealthcareEntities1 db;
-        internal PatientRepo()
+        internal PatientFeedbackRepo()
         {
             db = new HealthcareEntities1();
         }
-        public Patient Add(Patient obj)
+     
+
+        public PatientFeedback Add(PatientFeedback obj)
         {
-            db.Patients.Add(obj);
+            db.PatientFeedbacks.Add(obj);
             if (db.SaveChanges() > 0)
             {
                 return obj;
@@ -29,33 +30,27 @@ namespace DAL.Repos
         public bool Delete(int id)
         {
             var dbobj = Get(id);
-            db.Patients.Remove(dbobj);
+            db.PatientFeedbacks.Remove(dbobj);
             return db.SaveChanges() > 0;
         }
 
-        public List<Patient> Get()
+        public List<PatientFeedback> Get()
         {
-            return db.Patients.ToList();
+            return db.PatientFeedbacks.ToList();
         }
 
-        public Patient Get(int id)
+        public PatientFeedback Get(int id)
         {
-            return db.Patients.Find(id);
+            return db.PatientFeedbacks.Find(id);
         }
 
-        public Patient Update(Patient obj)
+        public PatientFeedback Update(PatientFeedback obj)
         {
-            var dbobbj = db.Patients.Find(obj.Id);
+            var dbobbj = db.PatientFeedbacks.Find(obj.Id);
             db.Entry(dbobbj).CurrentValues.SetValues(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
 
-        public int GetByEmail(string id)
-        {
-            var data = (from a in db.Patients where a.Email == id select a).SingleOrDefault();
-            
-            return data.Id;
-        }
     }
 }

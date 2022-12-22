@@ -14,11 +14,17 @@ namespace DAL.EF
     
     public partial class Prescription
     {
-        public int Medicine_Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Hid { get; set; }
+        public int Id { get; set; }
+        public int D_Id { get; set; }
+        public int P_Id { get; set; }
+        public int H_Id { get; set; }
+        public string Test { get; set; }
+        public string Medicine { get; set; }
+        public string Patient_Name { get; set; }
+        public string Patient_Age { get; set; }
     
+        public virtual Doctor Doctor { get; set; }
         public virtual Hospital Hospital { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }

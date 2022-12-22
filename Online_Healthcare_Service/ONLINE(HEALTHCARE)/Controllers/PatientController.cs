@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class PatientController : ApiController
     {
         [HttpGet]
@@ -76,6 +78,14 @@ namespace ONLINE_HEALTHCARE_.Controllers
                         Message = "Patient Delete unsuccessfully"
                     }
                 );
+        }
+        [HttpGet]
+        [Route("api/Patient/byemail/{id}")]
+        public HttpResponseMessage GetbyEmail(string id)
+        {
+            id = id + ".com";
+            var data = PatientService.GetByEmail(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
         }
     }
 }

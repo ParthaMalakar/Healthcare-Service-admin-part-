@@ -18,6 +18,7 @@ namespace DAL.EF
         {
             this.Ambulances = new HashSet<Ambulance>();
             this.Appointments = new HashSet<Appointment>();
+            this.Prescriptions = new HashSet<Prescription>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,6 @@ namespace DAL.EF
     
         public virtual ICollection<Ambulance> Ambulances { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

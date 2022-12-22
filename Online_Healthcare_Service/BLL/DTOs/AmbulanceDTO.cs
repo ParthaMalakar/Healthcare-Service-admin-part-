@@ -15,5 +15,7 @@ namespace BLL.DTOs
         public string Rent { get; set; }
         public string Status { get; set; }
         public int Hid { get; set; }
+        public Nullable<int> Pid { get; set; }
+        public string Location { get; set; }
     }
 }
