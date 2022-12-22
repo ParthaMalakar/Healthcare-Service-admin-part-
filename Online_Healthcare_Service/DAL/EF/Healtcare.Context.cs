@@ -26,6 +26,7 @@ namespace DAL.EF
         }
     
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<AdminReport> AdminReports { get; set; }
         public DbSet<Ambulance> Ambulances { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Blood_Bank> Blood_Bank { get; set; }

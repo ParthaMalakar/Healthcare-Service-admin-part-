@@ -78,5 +78,6 @@ namespace BLL.Services
             });
             return DataAccessFactory.AdminDataAccess().Delete(id);
         }
+
     }
 }

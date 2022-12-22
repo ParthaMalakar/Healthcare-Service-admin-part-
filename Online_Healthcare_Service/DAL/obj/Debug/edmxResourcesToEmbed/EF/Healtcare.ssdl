@@ -10,6 +10,18 @@
     <Property Name="Email" Type="nchar" MaxLength="10" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="AdminReport">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Receiver" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Report_Time" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Ambulance">
     <Key>
       <PropertyRef Name="Id" />
@@ -56,6 +68,7 @@
     <Property Name="Fees" Type="int" />
     <Property Name="User_Type" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Donar_Info">
     <Key>
@@ -129,12 +142,12 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Admin_Id" Type="int" />
-    <Property Name="Patient_Id" Type="int" />
-    <Property Name="Doctor_Id" Type="int" />
+    <Property Name="Admin_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Patient_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Doctor_Name" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_Ambulance_Ambulance">
@@ -235,6 +248,7 @@
   </Association>
   <EntityContainer Name="HealthcareModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminReport" EntityType="Self.AdminReport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ambulance" EntityType="Self.Ambulance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Blood_Bank" EntityType="Self.Blood_Bank" Schema="dbo" store:Type="Tables" />

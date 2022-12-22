@@ -66,67 +66,75 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DataAccessFactory.cs" />
     <Compile Include="EF\Admin.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AdminReport.cs">
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Ambulance.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Appointment.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Blood_Bank.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Doctor.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Donar_Info.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Donate_Money.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Healthcare.Context.cs">
+    <Compile Include="EF\Healtcare.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Healthcare.Context.tt</DependentUpon>
+      <DependentUpon>Healtcare.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Healthcare.cs">
+    <Compile Include="EF\Healtcare.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Healthcare.Designer.cs">
+    <Compile Include="EF\Healtcare.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Healthcare.edmx</DependentUpon>
+      <DependentUpon>Healtcare.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\Hospital.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Patient.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Prescription.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Token.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\User_Table.cs">
-      <DependentUpon>Healthcare.tt</DependentUpon>
+      <DependentUpon>Healtcare.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAuth.cs" />
+    <Compile Include="Interfaces\IBlockPatient.cs" />
     <Compile Include="Interfaces\IGet.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
+    <Compile Include="Interfaces\IReport.cs" />
+    <Compile Include="Interfaces\IRepo_Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\AdminRepo.cs" />
+    <Compile Include="Repos\AdminReportRepo.cs" />
     <Compile Include="Repos\AmbulanceRepo.cs" />
     <Compile Include="Repos\AppointmentRepo.cs" />
     <Compile Include="Repos\AuthRepo.cs" />
+    <Compile Include="Repos\BlockPatient.cs" />
     <Compile Include="Repos\Blood_BankRepo.cs" />
     <Compile Include="Repos\DoctorRepo.cs" />
     <Compile Include="Repos\DonateMoneyRepo.cs" />
@@ -139,28 +147,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="EF\Healthcare.edmx">
+    <EntityDeploy Include="EF\Healtcare.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Healthcare.Designer.cs</LastGenOutput>
+      <LastGenOutput>Healtcare.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EF\Healthcare.edmx.diagram">
-      <DependentUpon>Healthcare.edmx</DependentUpon>
+    <None Include="EF\Healtcare.edmx.diagram">
+      <DependentUpon>Healtcare.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="EF\Healthcare.Context.tt">
+    <Content Include="EF\Healtcare.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Healthcare.edmx</DependentUpon>
-      <LastGenOutput>Healthcare.Context.cs</LastGenOutput>
+      <DependentUpon>Healtcare.edmx</DependentUpon>
+      <LastGenOutput>Healtcare.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\Healthcare.tt">
+    <Content Include="EF\Healtcare.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Healthcare.edmx</DependentUpon>
-      <LastGenOutput>Healthcare.cs</LastGenOutput>
+      <DependentUpon>Healtcare.edmx</DependentUpon>
+      <LastGenOutput>Healtcare.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

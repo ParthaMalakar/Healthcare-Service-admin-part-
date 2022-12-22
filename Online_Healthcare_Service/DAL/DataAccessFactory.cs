@@ -13,6 +13,7 @@ namespace DAL
 {
     public class DataAccessFactory
     {
+
         public static IRepo<Doctor, int, Doctor> DoctorDataAccess()
         {
             return new DoctorRepo();
@@ -21,6 +22,10 @@ namespace DAL
         {
             return new PatientRepo();
         }
+        public static IBlockPatient<Patient, int> BlockpatientDataAccess()
+            {
+            return new BlockPatient();
+             }
         public static IRepo<Appointment, int, Appointment> AppointmentDataAccess()
         {
             return new AppointmentRepo();
@@ -74,9 +79,22 @@ namespace DAL
         {
             return new UserRepo();
         }
+        public static IRepo<Token, string, Token> TokenDataAccess()
+        {
+            return new TokenRepo();
+        }
         public static IAuth AuthDataAccess()
         {
             return new AuthRepo();
+        }
+        public static IRepo_Admin<AdminReport, int> ReportDataAccess()
+        {
+            return new AdminReportRepo();
+        }
+
+        public static IReport<AdminReport, String> ReportgetSRDataAccess()
+        {
+            return new AdminReportRepo();
         }
     }
 }
