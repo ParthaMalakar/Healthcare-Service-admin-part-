@@ -70,6 +70,17 @@ namespace BLL.Services
             });
             return DataAccessFactory.BloodBankDataAccess().Delete(id);
         }
-
+        public static List<BloodBankDTO> AvailableGet()
+        {
+            //return new List<PatientDTO>();
+            var data = DataAccessFactory.requestbloodDataAccess().AvailableGet();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Blood_Bank, BloodBankDTO>();
+            });
+            var mapper = new Mapper(config);
+            var converted = mapper.Map<List<BloodBankDTO>>(data);
+            return converted;
+        }
     }
 }

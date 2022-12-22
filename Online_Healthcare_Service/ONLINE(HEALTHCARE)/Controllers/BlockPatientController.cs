@@ -47,7 +47,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
         {
             if (BlockPatientService.Block(id))
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Data updated");
+                return Request.CreateResponse(HttpStatusCode.OK, "Block Successfully done");
             }
             return Request.CreateResponse(HttpStatusCode.NotFound, "Something went wrong");
         }

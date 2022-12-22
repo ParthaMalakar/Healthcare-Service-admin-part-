@@ -19,6 +19,7 @@ namespace DAL.EF
         public string Blood_group { get; set; }
         public string Phone { get; set; }
         public int Bid { get; set; }
+        public string Status { get; set; }
     
         public virtual Blood_Bank Blood_Bank { get; set; }
     }

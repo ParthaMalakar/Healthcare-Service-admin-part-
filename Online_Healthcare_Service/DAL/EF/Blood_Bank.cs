@@ -24,6 +24,8 @@ namespace DAL.EF
         public string collection_Date { get; set; }
         public string Quantity { get; set; }
         public int Hid { get; set; }
+        public string Status { get; set; }
+        public Nullable<int> Donar_Id { get; set; }
     
         public virtual Hospital Hospital { get; set; }
         public virtual ICollection<Donar_Info> Donar_Info { get; set; }

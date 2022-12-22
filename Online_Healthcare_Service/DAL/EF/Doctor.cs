@@ -29,6 +29,7 @@ namespace DAL.EF
         public string User_Type { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Status { get; set; }
     
         public virtual ICollection<Appointment> Appointments { get; set; }
         public virtual Hospital Hospital { get; set; }

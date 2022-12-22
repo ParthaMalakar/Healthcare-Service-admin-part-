@@ -60,6 +60,8 @@
           <ScalarProperty Name="collection_Date" ColumnName="collection_Date" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Hid" ColumnName="Hid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Donar_Id" ColumnName="Donar_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,6 +77,7 @@
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,6 +89,7 @@
           <ScalarProperty Name="Blood_group" ColumnName="Blood_group" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Bid" ColumnName="Bid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

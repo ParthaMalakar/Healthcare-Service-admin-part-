@@ -103,5 +103,13 @@ namespace DAL
         {
             return new PatientRepo();
         }
+       public static IAssignDonar<Donar_Info, int> assignDoctorDataAccess()
+        {
+            return new AssignDonarRepo();
+        }
+        public static IAssignDonar<Blood_Bank, int> requestbloodDataAccess()
+        {
+            return new Blood_BankRepo();
+        }
     }
 }

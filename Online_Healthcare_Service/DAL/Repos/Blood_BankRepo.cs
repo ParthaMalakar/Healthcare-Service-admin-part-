@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class Blood_BankRepo : IRepo<Blood_Bank, int, Blood_Bank>
+    internal class Blood_BankRepo : IRepo<Blood_Bank, int, Blood_Bank>,IAssignDonar<Blood_Bank,int>
     {
         HealthcareEntities1 db;
         internal Blood_BankRepo()
@@ -25,7 +25,32 @@ namespace DAL.Repos
             return null;
         }
 
-      
+        public List<Blood_Bank> AlldonarcollectedGet()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blood_Bank AlldonarcollectedGet(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Assign(int obj, int pid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Blood_Bank> AvailableGet()
+        {
+            var AD = (from I in db.Blood_Bank where I.Status.Equals("NEEDED") select I).ToList();
+            return AD;
+        }
+
+        public Blood_Bank AvailableGet(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Delete(int id)
         {
             throw new NotImplementedException();

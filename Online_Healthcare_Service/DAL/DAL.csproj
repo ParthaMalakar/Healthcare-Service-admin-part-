@@ -125,6 +125,7 @@
     <Compile Include="EF\User_Table.cs">
       <DependentUpon>Healthcare.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAssignDonar.cs" />
     <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IBlockPatient.cs" />
     <Compile Include="Interfaces\IGet.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Repos\AdminReportRepo.cs" />
     <Compile Include="Repos\AmbulanceRepo.cs" />
     <Compile Include="Repos\AppointmentRepo.cs" />
+    <Compile Include="Repos\AssignDonarRepo.cs" />
     <Compile Include="Repos\AuthRepo.cs" />
     <Compile Include="Repos\BlockPatient.cs" />
     <Compile Include="Repos\Blood_BankRepo.cs" />

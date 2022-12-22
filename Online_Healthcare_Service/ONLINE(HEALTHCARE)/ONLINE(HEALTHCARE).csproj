@@ -95,6 +95,7 @@
     <Compile Include="Controllers\AdminReportController.cs" />
     <Compile Include="Controllers\AmbulanceController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\AssignDonarController.cs" />
     <Compile Include="Controllers\BlockPatientController.cs" />
     <Compile Include="Controllers\DoctorAuthController.cs" />
     <Compile Include="Controllers\BloodBankController.cs" />

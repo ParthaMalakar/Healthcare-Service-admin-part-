@@ -14,7 +14,9 @@ namespace BLL.DTOs
         public string Blood_group { get; set; }
         public string Phone { get; set; }
         public int Bid { get; set; }
-      //  public virtual ICollection<Blood_Bank> Blood_Bank { get; set; }
+        public string Status { get; set; }
+        public Nullable<int> Donar_Id { get; set; }
+        //  public virtual ICollection<Blood_Bank> Blood_Bank { get; set; }
 
     }
 }

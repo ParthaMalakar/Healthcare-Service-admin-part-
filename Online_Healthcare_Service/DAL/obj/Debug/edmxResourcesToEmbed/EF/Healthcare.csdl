@@ -59,6 +59,8 @@
     <Property Name="collection_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Hid" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Donar_Id" Type="Int32" />
     <NavigationProperty Name="Hospital" Relationship="Self.FK_Blood_Bank_Hospital" FromRole="Blood_Bank" ToRole="Hospital" />
     <NavigationProperty Name="Donar_Info" Relationship="Self.FK_Donar_Info_Blood_Bank" FromRole="Blood_Bank" ToRole="Donar_Info" />
   </EntityType>
@@ -75,6 +77,7 @@
     <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
     <NavigationProperty Name="Hospital" Relationship="Self.FK_Doctor_Hospital" FromRole="Doctor" ToRole="Hospital" />
     <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Doctor" FromRole="Doctor" ToRole="Prescription" />
@@ -88,6 +91,7 @@
     <Property Name="Blood_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Bid" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Blood_Bank" Relationship="Self.FK_Donar_Info_Blood_Bank" FromRole="Donar_Info" ToRole="Blood_Bank" />
   </EntityType>
   <EntityType Name="Donate_Money">

@@ -56,6 +56,8 @@
     <Property Name="collection_Date" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Quantity" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Hid" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Donar_Id" Type="int" />
   </EntityType>
   <EntityType Name="Doctor">
     <Key>
@@ -70,6 +72,7 @@
     <Property Name="User_Type" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donar_Info">
     <Key>
@@ -80,6 +83,7 @@
     <Property Name="Blood_group" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Bid" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donate_Money">
     <Key>

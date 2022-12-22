@@ -80,6 +80,7 @@
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AmbulanceService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\AssignDonarService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\BlockPatientService.cs" />
     <Compile Include="Services\BloodBankService.cs" />
