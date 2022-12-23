@@ -96,6 +96,7 @@
     <Compile Include="DTOs\AppointmentDTO.cs" />
     <Compile Include="DTOs\BloodBankDTO.cs" />
     <Compile Include="DTOs\DoctorDTO.cs" />
+    <Compile Include="DTOs\DoctorWithAppointmentDTO.cs" />
     <Compile Include="DTOs\DonateMoneyDTO.cs" />
     <Compile Include="DTOs\Donor_InfoDTO.cs" />
     <Compile Include="DTOs\HospitalDoctorDTO.cs" />

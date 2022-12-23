@@ -74,5 +74,17 @@ namespace BLL.Services
         {       
             return DataAccessFactory.DoctorDataAccess().Delete(id);
         }
+        public static DoctorWithAppointmentDTO GetwithDoctor(int id)
+        {
+            var data = DataAccessFactory.DoctorDataAccess().Get(id);
+            var cfg = new MapperConfiguration(c => {
+                c.CreateMap<Doctor, DoctorWithAppointmentDTO>();
+                c.CreateMap<Appointment, AppointmentDTO>();
+
+            });
+            var mapper = new Mapper(cfg);
+            return mapper.Map<DoctorWithAppointmentDTO>(data);
+        }
+
     }
-    }
+}
