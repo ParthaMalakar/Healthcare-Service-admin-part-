@@ -101,6 +101,17 @@
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="Notice_Id" />
+    </Key>
+    <Property Name="Notice_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Issue_time" Type="datetime" Nullable="false" />
+    <Property Name="Due_time" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patient">
     <Key>
       <PropertyRef Name="Id" />
@@ -297,6 +308,7 @@
     <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PatientFeedback" EntityType="Self.PatientFeedback" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />

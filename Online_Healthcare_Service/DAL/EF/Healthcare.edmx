@@ -106,6 +106,17 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="Notice_Id" />
+          </Key>
+          <Property Name="Notice_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Issue_time" Type="datetime" Nullable="false" />
+          <Property Name="Due_time" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Patient">
           <Key>
             <PropertyRef Name="Id" />
@@ -302,6 +313,7 @@
           <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PatientFeedback" EntityType="Self.PatientFeedback" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
@@ -466,6 +478,17 @@
           <NavigationProperty Name="Blood_Bank" Relationship="Self.FK_Blood_Bank_Hospital" FromRole="Hospital" ToRole="Blood_Bank" />
           <NavigationProperty Name="Doctors" Relationship="Self.FK_Doctor_Hospital" FromRole="Hospital" ToRole="Doctor" />
           <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Hospital" FromRole="Hospital" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="Notice_Id" />
+          </Key>
+          <Property Name="Notice_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -671,6 +694,7 @@
           <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" />
           <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" />
           <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
+          <EntitySet Name="Notices" EntityType="Self.Notice" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="PatientFeedbacks" EntityType="Self.PatientFeedback" />
           <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />
@@ -831,6 +855,18 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notices">
+            <EntityTypeMapping TypeName="HealthcareModel.Notice">
+              <MappingFragment StoreEntitySet="Notice">
+                <ScalarProperty Name="Notice_Id" ColumnName="Notice_Id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
+                <ScalarProperty Name="Due_time" ColumnName="Due_time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

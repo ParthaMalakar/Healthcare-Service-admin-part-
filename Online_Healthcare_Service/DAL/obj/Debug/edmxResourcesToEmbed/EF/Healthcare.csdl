@@ -113,6 +113,17 @@
     <NavigationProperty Name="Doctors" Relationship="Self.FK_Doctor_Hospital" FromRole="Hospital" ToRole="Doctor" />
     <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Hospital" FromRole="Hospital" ToRole="Prescription" />
   </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="Notice_Id" />
+    </Key>
+    <Property Name="Notice_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patient">
     <Key>
       <PropertyRef Name="Id" />
@@ -317,6 +328,7 @@
     <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" />
     <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" />
     <EntitySet Name="Hospitals" EntityType="Self.Hospital" />
+    <EntitySet Name="Notices" EntityType="Self.Notice" />
     <EntitySet Name="Patients" EntityType="Self.Patient" />
     <EntitySet Name="PatientFeedbacks" EntityType="Self.PatientFeedback" />
     <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />

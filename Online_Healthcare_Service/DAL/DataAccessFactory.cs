@@ -111,5 +111,9 @@ namespace DAL
         {
             return new Blood_BankRepo();
         }
+      public static IRepo_Admin<Notice, int> NoticeDataAccess()
+        {
+            return new NoticeRepo();
+        }
     }
 }

@@ -111,6 +111,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="HealthcareModel.Notice">
+        <MappingFragment StoreEntitySet="Notice">
+          <ScalarProperty Name="Notice_Id" ColumnName="Notice_Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
+          <ScalarProperty Name="Due_time" ColumnName="Due_time" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="HealthcareModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
