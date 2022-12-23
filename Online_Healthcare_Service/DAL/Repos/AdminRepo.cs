@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AdminRepo : IRepo<Admin, int, Admin> 
+    internal class AdminRepo : IRepo<Admin, int, Admin> , In_VarIRepo<Admin, string>
     {
 
         HealthcareEntities1 db;
@@ -56,6 +56,51 @@ namespace DAL.Repos
             var data = db.Admins.FirstOrDefault(u => u.Name.Equals(uname) && u.Password.Equals(pass));
             if (data != null) return true;
             return false;
+        }
+
+        public bool createVar(string email, string code)
+        {
+            var Ed = (from I in db.Admins where I.Email.Equals(email) select I).FirstOrDefault();
+
+            if (Ed != null)
+            {
+                Ed.EmailValidation = code;
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public bool checkVar(string email, string code)
+        {
+            var Ed = (from I in db.Admins where I.Email.Equals(email) select I).FirstOrDefault();
+
+            if (Ed != null)
+            {
+                if (Ed.EmailValidation.Equals(code))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        public bool checkMail(string email)
+        {
+            var Ed = (from I in db.Admins where I.Email.Equals(email) && !I.EmailValidation.Equals("Yes") select I).FirstOrDefault();
+            if (Ed != null)
+            {
+                return true;
+            }
+            return true;
         }
     }
 }

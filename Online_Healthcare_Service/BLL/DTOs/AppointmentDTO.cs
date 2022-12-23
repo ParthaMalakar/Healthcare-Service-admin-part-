@@ -13,7 +13,10 @@ namespace BLL.DTOs
         public int Did { get; set; }
         public int Pid { get; set; }
         public string Status { get; set; }
+        public string Name { get; set; }
+        public int P_Age { get; set; }
+        public System.DateTime AppointmentDate { get; set; }
 
-       
+
     }
 }

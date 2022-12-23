@@ -9,6 +9,7 @@
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -9,6 +9,7 @@
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,6 +36,7 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Hid" ColumnName="Hid" />
           <ScalarProperty Name="Pid" ColumnName="Pid" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -59,6 +61,8 @@
           <ScalarProperty Name="collection_Date" ColumnName="collection_Date" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Hid" ColumnName="Hid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Donar_Id" ColumnName="Donar_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,6 +78,7 @@
           <ScalarProperty Name="User_Type" ColumnName="User_Type" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,6 +90,7 @@
           <ScalarProperty Name="Blood_group" ColumnName="Blood_group" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Bid" ColumnName="Bid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -106,6 +112,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Notices">
+      <EntityTypeMapping TypeName="HealthcareModel.Notice">
+        <MappingFragment StoreEntitySet="Notice">
+          <ScalarProperty Name="Notice_Id" ColumnName="Notice_Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
+          <ScalarProperty Name="Due_time" ColumnName="Due_time" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="HealthcareModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
@@ -120,13 +138,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PatientFeedbacks">
+      <EntityTypeMapping TypeName="HealthcareModel.PatientFeedback">
+        <MappingFragment StoreEntitySet="PatientFeedback">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Prescriptions">
       <EntityTypeMapping TypeName="HealthcareModel.Prescription">
         <MappingFragment StoreEntitySet="Prescription">
-          <ScalarProperty Name="Medicine_Id" ColumnName="Medicine_Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Hid" ColumnName="Hid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="D_Id" ColumnName="D_Id" />
+          <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+          <ScalarProperty Name="H_Id" ColumnName="H_Id" />
+          <ScalarProperty Name="Test" ColumnName="Test" />
+          <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+          <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
+          <ScalarProperty Name="Patient_Age" ColumnName="Patient_Age" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

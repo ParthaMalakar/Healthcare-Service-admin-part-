@@ -7,8 +7,9 @@
     <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailValidation" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="AdminReport">
     <Key>

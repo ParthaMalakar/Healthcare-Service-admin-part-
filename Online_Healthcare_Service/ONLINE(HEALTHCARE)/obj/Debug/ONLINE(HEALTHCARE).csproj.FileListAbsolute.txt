@@ -390,3 +390,10 @@ E:\Online_Healthcare_Service\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\De
 E:\Online_Healthcare_Service\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).csproj.CopyComplete
 E:\Online_Healthcare_Service\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).dll
 E:\Online_Healthcare_Service\Online_Healthcare_Service\ONLINE(HEALTHCARE)\obj\Debug\ONLINE(HEALTHCARE).pdb
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\ClosedXML.dll
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\DocumentFormat.OpenXml.dll
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\ExcelNumberFormat.dll
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\ClosedXML.pdb
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\ClosedXML.xml
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\DocumentFormat.OpenXml.xml
+D:\moive\New folder\Online_Healthcare_Service\ONLINE(HEALTHCARE)\bin\ExcelNumberFormat.xml

@@ -101,6 +101,7 @@
     <Compile Include="Controllers\BloodBankController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\DonateMoneyController.cs" />
+    <Compile Include="Controllers\DownloadandVerifyAdminController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Controllers\PatientAuthController.cs" />

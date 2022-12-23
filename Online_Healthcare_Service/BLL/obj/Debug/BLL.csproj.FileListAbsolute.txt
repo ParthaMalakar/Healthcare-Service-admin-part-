@@ -104,3 +104,19 @@ E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.
 E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.dll
 E:\Online_Healthcare_Service\Online_Healthcare_Service\BLL\obj\Debug\BLL.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ClosedXML.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ClosedXML.Report.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\DocumentFormat.OpenXml.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ExcelNumberFormat.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\MoreLinq.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.IO.Packaging.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Linq.Dynamic.Core.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.ValueTuple.dll
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ClosedXML.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ClosedXML.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\DocumentFormat.OpenXml.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\ExcelNumberFormat.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\MoreLinq.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Linq.Dynamic.Core.pdb
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.Linq.Dynamic.Core.xml
+D:\moive\New folder\Online_Healthcare_Service\BLL\bin\Debug\System.ValueTuple.xml

@@ -9,6 +9,7 @@
     <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nchar" MaxLength="10" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailValidation" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="AdminReport">
     <Key>
@@ -20,7 +21,7 @@
     <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="Report_Time" Type="datetime" Nullable="false" />
-    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Ambulance">
     <Key>
@@ -33,6 +34,7 @@
     <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Hid" Type="int" Nullable="false" />
     <Property Name="Pid" Type="int" />
+    <Property Name="Location" Type="varchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="Appointment">
     <Key>
@@ -55,6 +57,8 @@
     <Property Name="collection_Date" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Quantity" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Hid" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Donar_Id" Type="int" />
   </EntityType>
   <EntityType Name="Doctor">
     <Key>
@@ -69,6 +73,7 @@
     <Property Name="User_Type" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donar_Info">
     <Key>
@@ -79,6 +84,7 @@
     <Property Name="Blood_group" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Bid" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Donate_Money">
     <Key>
@@ -96,6 +102,17 @@
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="Notice_Id" />
+    </Key>
+    <Property Name="Notice_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Issue_time" Type="datetime" Nullable="false" />
+    <Property Name="Due_time" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Patient">
     <Key>
       <PropertyRef Name="Id" />
@@ -109,14 +126,26 @@
     <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="PatientFeedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Feedback" Type="text" Nullable="false" />
+  </EntityType>
   <EntityType Name="Prescription">
     <Key>
-      <PropertyRef Name="Medicine_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Medicine_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="false" />
-    <Property Name="Hid" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="D_Id" Type="int" Nullable="false" />
+    <Property Name="P_Id" Type="int" Nullable="false" />
+    <Property Name="H_Id" Type="int" Nullable="false" />
+    <Property Name="Test" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Medicine" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patient_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patient_Age" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -222,7 +251,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Medicine_Hospital">
+  <Association Name="FK_Prescription_Doctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="D_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prescription_Hospital">
     <End Role="Hospital" Type="Self.Hospital" Multiplicity="1" />
     <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +271,19 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Prescription">
-        <PropertyRef Name="Hid" />
+        <PropertyRef Name="H_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prescription_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="P_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -256,7 +309,9 @@
     <EntitySet Name="Donar_Info" EntityType="Self.Donar_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donate_Money" EntityType="Self.Donate_Money" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientFeedback" EntityType="Self.PatientFeedback" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
@@ -285,8 +340,16 @@
       <End Role="Blood_Bank" EntitySet="Blood_Bank" />
       <End Role="Donar_Info" EntitySet="Donar_Info" />
     </AssociationSet>
-    <AssociationSet Name="FK_Medicine_Hospital" Association="Self.FK_Medicine_Hospital">
+    <AssociationSet Name="FK_Prescription_Doctor" Association="Self.FK_Prescription_Doctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prescription_Hospital" Association="Self.FK_Prescription_Hospital">
       <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prescription_Patient" Association="Self.FK_Prescription_Patient">
+      <End Role="Patient" EntitySet="Patient" />
       <End Role="Prescription" EntitySet="Prescription" />
     </AssociationSet>
     <AssociationSet Name="FK_Token_User_Table" Association="Self.FK_Token_User_Table">

@@ -12,8 +12,9 @@
           <Property Name="Admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Type" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailValidation" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AdminReport">
           <Key>
@@ -373,8 +374,9 @@
           <Property Name="Admin_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailValidation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AdminReport">
           <Key>
@@ -756,6 +758,7 @@
                 <ScalarProperty Name="User_Type" ColumnName="User_Type" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

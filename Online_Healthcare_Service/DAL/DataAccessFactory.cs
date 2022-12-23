@@ -115,5 +115,9 @@ namespace DAL
         {
             return new NoticeRepo();
         }
+        public static In_VarIRepo<Admin, string> ADMINVERIFYDataAccess()
+        {
+            return new AdminRepo();
+        }
     }
 }
