@@ -70,5 +70,16 @@ namespace BLL.Services
             });
             return DataAccessFactory.AmbulanceDataAccess().Delete(id);
         }
+        public static List<AmbulanceDTO> AGet()
+        {
+            var data = DataAccessFactory.ADataAccess().ActiveGet();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Ambulance, AmbulanceDTO>();
+            });
+            var mapper = new Mapper(config);
+            var converted = mapper.Map<List<AmbulanceDTO>>(data);
+            return converted;
+        }
     }
 }

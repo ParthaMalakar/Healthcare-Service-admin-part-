@@ -53,13 +53,23 @@ namespace DAL
         {
             return new AppointmentRepo();
         }
+        public static IGetDoc<Appointment, int> AppointmentIddDataAccess()
+        {
+            return new AppointmentRepo();
+        }
 
-       
+        public static IBlockPatient<Ambulance, int> ADataAccess()
+        {
+            return new AmbulanceRepo();
+        }
         public static IGet<Prescription, int> PrescriptionIdDataAccess()
         {
             return new PrescriptionRepo();
         }
-
+        public static IGet<Doctor, int> DIdDataAccess()
+        {
+            return new HospitalRepo();
+        }
         public static IRepo<Prescription, int, Prescription> PrescriptionDataAccess()
         {
             return new PrescriptionRepo();
@@ -103,7 +113,11 @@ namespace DAL
         {
             return new PatientRepo();
         }
-       public static IAssignDonar<Donar_Info, int> assignDoctorDataAccess()
+        public static IGetbyemailI<int, String> GetbyemailADDataAccess()
+        {
+            return new AdminRepo();
+        }
+        public static IAssignDonar<Donar_Info, int> assignDoctorDataAccess()
         {
             return new AssignDonarRepo();
         }

@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class AssignDonarController : ApiController
     {
 
@@ -41,6 +43,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
+        [EnableCors("*", "*", "*")]
         [Route("api/donar/Assign/{pid}/{id}")]
         [HttpPost]
         public HttpResponseMessage Assign(int id,int pid)

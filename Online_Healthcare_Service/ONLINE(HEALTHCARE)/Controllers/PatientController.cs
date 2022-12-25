@@ -29,6 +29,21 @@ namespace ONLINE_HEALTHCARE_.Controllers
 
         }
         [HttpGet]
+        [Route("api/Patients/feedback")]
+        public HttpResponseMessage paGet()
+        {
+            try
+            {
+                var data = PatientFeedbackFeedbackService.Get().Take(10);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+        }
+        [HttpGet]
         [Route("api/Patient/{id}")]
         public HttpResponseMessage Get(int id)
         {
@@ -43,6 +58,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
 
         }
+        [EnableCors("*", "*", "*")]
         [Route("api/Patient/update")]
         [HttpPost]
         public HttpResponseMessage Update(PatientDTO Patient)

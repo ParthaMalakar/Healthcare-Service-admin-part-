@@ -10,9 +10,10 @@ using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class AppointmentController : ApiController
     {
-        [EnableCors("*", "*", "*")]
+        
         [HttpGet]
         [Route("api/Appointments")]
         public HttpResponseMessage Get()
@@ -28,7 +29,21 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
+        [HttpGet]
+        [Route("api/Appointmentslist")]
+        public HttpResponseMessage allGet()
+        {
+            try
+            {
+                var data = VerifyANDdownloadforADminService.getallappointment().Take(10);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
 
+        }
 
 
         [EnableCors("*", "*", "*")]
@@ -39,6 +54,21 @@ namespace ONLINE_HEALTHCARE_.Controllers
             try
             {
                 var data = AppointmentService.GetByPid(id);
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+        }
+        [HttpGet]
+        [Route("api/Appointments/doctor/{id}")]
+        public HttpResponseMessage GetBydocId(int id)
+        {
+            try
+            {
+                var data = AppointmentService.GetByDid(id);
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             catch (Exception ex)

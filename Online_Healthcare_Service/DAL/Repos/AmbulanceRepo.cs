@@ -8,13 +8,25 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AmbulanceRepo : IRepo<Ambulance, int, Ambulance>
+    internal class AmbulanceRepo : IRepo<Ambulance, int, Ambulance>, IBlockPatient<Ambulance, int>
     {
         HealthcareEntities1 db;
         internal AmbulanceRepo()
         {
             db = new HealthcareEntities1();
         }
+
+        public List<Ambulance> ActiveGet()
+        {
+            var data = (from a in db.Ambulances where a.Status == "Requesting" select a).ToList();
+            return data;
+        }
+
+        public Ambulance ActiveGet(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Ambulance Add(Ambulance obj)
         {
             db.Ambulances.Add(obj);
@@ -23,6 +35,21 @@ namespace DAL.Repos
                 return obj;
             }
             return null;
+        }
+
+        public bool Block(int obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Ambulance> BlockGet()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ambulance BlockGet(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Delete(int id)

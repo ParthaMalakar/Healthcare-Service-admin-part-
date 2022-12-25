@@ -3,12 +3,13 @@ using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class HospitalRepo : IRepo<Hospital, int, Hospital>
+    internal class HospitalRepo : IRepo<Hospital, int, Hospital>, IGet<Doctor, int>
     {
 
         HealthcareEntities1 db;
@@ -41,6 +42,13 @@ namespace DAL.Repos
         public Hospital Get(int id)
         {
             return db.Hospitals.Find(id);
+        }
+
+        public List<Doctor> GetByPid(int id)
+        {
+            var data = (from a in db.Doctors where a.Hid == id select a).ToList();
+
+            return data;
         }
 
         public Hospital Update(Hospital obj)

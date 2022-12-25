@@ -133,6 +133,7 @@
     <Compile Include="Interfaces\IBlockPatient.cs" />
     <Compile Include="Interfaces\IGet.cs" />
     <Compile Include="Interfaces\IGetbyemail.cs" />
+    <Compile Include="Interfaces\IGetDoc.cs" />
     <Compile Include="Interfaces\In_VarIRepo.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Interfaces\IReport.cs" />

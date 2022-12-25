@@ -83,6 +83,19 @@ namespace BLL.Services
             var converted = mapper.Map<List<AppointmentDTO>>(data);
             return converted;
         }
+        public static List<AppointmentDTO> GetByDid(int id)
+        {
+            //return new List<AppointmentDTO>();
+            var data = DataAccessFactory.AppointmentIddDataAccess().GetByDid(id);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Appointment, AppointmentDTO>();
+            });
+            var mapper = new Mapper(config);
+            var converted = mapper.Map<List<AppointmentDTO>>(data);
+            return converted;
+        }
+        
 
     }
 }

@@ -82,6 +82,16 @@ namespace BLL.Services
             var mapper = new Mapper(cfg);
             return mapper.Map<HospitalDoctorDTO>(data);
         }
-
+        public static List<DoctorDTO> Doctor(int id)
+        {
+            var data = DataAccessFactory.DIdDataAccess().GetByPid(id);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Doctor, DoctorDTO>();
+            });
+            var mapper = new Mapper(config);
+            var converted = mapper.Map<List<DoctorDTO>>(data);
+            return converted;
+        }
     }
 }

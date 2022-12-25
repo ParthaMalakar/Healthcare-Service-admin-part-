@@ -103,6 +103,20 @@ namespace ONLINE_HEALTHCARE_.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+        [EnableCors("*", "*", "*")]
+        [Route("api/DocList/{id}")]
+        [HttpGet]
+        public HttpResponseMessage GeTdoc(int id)
+        {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, HospitalService.Doctor(id));
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
 
 
 

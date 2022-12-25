@@ -69,6 +69,33 @@ namespace BLL.Services
 
             }
         }
+        public static List<AppointmentDTO> getallappointment()
+        {
+            var data = AppointmentService.Get();
+            var Notices = new List<AppointmentDTO>();
+            foreach (var In in data)
+            {
+                var dto = new AppointmentDTO();
+                var ab = DoctorService.Get(In.Did);
+                var pa = PatientService.Get(In.Pid);
+                {
+                    dto.Name = In.Name;
+                    dto.P_Age = In.P_Age;
+                    dto.Status = In.Status;
+                    dto.AppointmentDate = In.AppointmentDate;
+                    dto.DName = ab.Name;
+                    dto.Dsepciality = ab.Specaility;
+                    dto.DEmail = ab.Email;
+                    dto.PEmail = pa.Email;
+                    dto.Did = ab.Id;
+                    dto.Pid = pa.Id;
+                    dto.Id =In.Id;
+                };
+                Notices.Add(dto);
+
+            }
+            return Notices;
+        }
 
         public static bool Mail(string subject, string body, string To)
         {
@@ -124,7 +151,7 @@ namespace BLL.Services
                 V.Code =VarificationString();
                 if (DataAccessFactory.ADMINVERIFYDataAccess().createVar(V.Email, V.Code))
                 {
-                    var subject = " Email Verification FOR DELETE ANYTHING";
+                    var subject = " Email Verification FOR Update password";
                     var body = "Your Verification code is:" + V.Code;
                     return Mail(subject, body, V.Email);
                 }

@@ -11,12 +11,15 @@ using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+   
+    [EnableCors("*", "*", "*")]
+  
     public class AmbulanceController : ApiController
     {
-        [EnableCors("*", "*", "*")]
+        
         [HttpGet]
         [Route("api/Ambulances")]
-        [Logged]
+       
         public HttpResponseMessage Get()
         {
             try
@@ -32,13 +35,30 @@ namespace ONLINE_HEALTHCARE_.Controllers
         }
         [EnableCors("*", "*", "*")]
         [HttpGet]
+        [Route("api/A/Ambulances")]
+
+        public HttpResponseMessage AGet()
+        {
+            try
+            {
+                var data = AmbulanceService.AGet();
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+
+        }
+
+        [HttpGet]
         [Route("api/Ambulance/{id}")]
         public HttpResponseMessage Get(int id)
         {
             var data = AmbulanceService.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
-        [EnableCors("*", "*", "*")]
+        
         [Route("api/Ambulance/add")]
         [HttpPost]
         public HttpResponseMessage Add(AmbulanceDTO obj)
@@ -47,7 +67,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
 
         }
-        [EnableCors("*", "*", "*")]
+
         [Route("api/Ambulance/update")]
         [HttpPost]
         public HttpResponseMessage Update(AmbulanceDTO Ambulance)
@@ -64,7 +84,7 @@ namespace ONLINE_HEALTHCARE_.Controllers
             }
 
         }
-        [EnableCors("*", "*", "*")]
+     
         [Route("api/Ambulance/Delete/{id}")]
         [HttpPost]
         public HttpResponseMessage DeleteAmbulance(int id)

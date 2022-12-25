@@ -78,6 +78,15 @@ namespace BLL.Services
             });
             return DataAccessFactory.AdminDataAccess().Delete(id);
         }
+        public static int GetByEmail(string id)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<AdminDTO, Admin>();
+                cfg.CreateMap<Admin, AdminDTO>();
+            });
+            return DataAccessFactory.GetbyemailADDataAccess().GetByEmail(id);
+        }
 
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AdminRepo : IRepo<Admin, int, Admin> , In_VarIRepo<Admin, string>
+    internal class AdminRepo : IRepo<Admin, int, Admin> , In_VarIRepo<Admin, string>, IGetbyemailI<int, string>
     {
 
         HealthcareEntities1 db;
@@ -101,6 +101,13 @@ namespace DAL.Repos
                 return true;
             }
             return true;
+        }
+
+        public int GetByEmail(string id)
+        {
+            var data = (from a in db.Admins where a.Email == id select a).SingleOrDefault();
+
+            return data.Admin_Id;
         }
     }
 }

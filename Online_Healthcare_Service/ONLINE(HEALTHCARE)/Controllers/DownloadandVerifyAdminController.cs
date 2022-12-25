@@ -7,13 +7,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class DownloadandVerifyAdminController : ApiController
     {
        // [InValid]
-        [Route("api/appointment/download")]
+        [Route("api/appointment/download/ID")]
         [HttpGet]
         public HttpResponseMessage Download()
         {

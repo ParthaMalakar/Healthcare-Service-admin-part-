@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using ONLINE_HEALTHCARE_.AuthFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ using System.Web.Http.Cors;
 
 namespace ONLINE_HEALTHCARE_.Controllers
 {
+    [EnableCors("*", "*", "*")]
+  
     public class AdminReportController : ApiController
     {
-        [EnableCors("*", "*", "*")]
+    
         [Route("api/Report/get/all")]
         [HttpGet]
         public HttpResponseMessage Get()
@@ -22,7 +25,6 @@ namespace ONLINE_HEALTHCARE_.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        [EnableCors("*", "*", "*")]
         [Route("api/AdminReport/Recived/{id}")]
         [HttpPost]
         public HttpResponseMessage recivedByEmails(string id)
@@ -102,6 +104,22 @@ namespace ONLINE_HEALTHCARE_.Controllers
         {
             var data = AdminReportService.sortByIdDec();
             return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+        [Route("api/adminss/update")]
+        [HttpPost]
+        public HttpResponseMessage ADUpdate(AdminDTO Patient)
+        {
+
+            try
+            {
+                var isUpdated = AdminService.Update(Patient);
+                return Request.CreateResponse(HttpStatusCode.OK, isUpdated);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+
         }
     }
 }

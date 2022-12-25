@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    internal class AppointmentRepo : IRepo<Appointment, int, Appointment>,IGet<Appointment,int>
+    internal class AppointmentRepo : IRepo<Appointment, int, Appointment>,IGet<Appointment,int>,IGetDoc<Appointment,int>
     {
         HealthcareEntities1 db;
         internal AppointmentRepo()
@@ -44,6 +44,11 @@ namespace DAL.Repos
             return db.Appointments.Find(id);
         }
 
+        public List<Appointment> GetByDid(int id)
+        {
+            var data = (from a in db.Appointments where a.Did == id select a).ToList();
+            return data;
+        }
 
         public List<Appointment> GetByPid(int id)
         {

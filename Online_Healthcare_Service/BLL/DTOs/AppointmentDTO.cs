@@ -16,7 +16,9 @@ namespace BLL.DTOs
         public string Name { get; set; }
         public int P_Age { get; set; }
         public System.DateTime AppointmentDate { get; set; }
-
-
+        public string DName { get; set; }
+        public string Dsepciality { get; set; }
+        public string PEmail { get; set; }
+        public string DEmail { get; set; }
     }
 }
